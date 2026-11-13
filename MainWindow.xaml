@@ -1,0 +1,93 @@
+﻿<ui:FluentWindow x:Class="PomodoroTimer.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+                 xmlns:p="clr-namespace:PomodoroTimer.Properties"
+                 Title="{x:Static p:Strings.AppTitle}"
+                 Width="460" Height="570" MinWidth="400" MinHeight="530"
+                 WindowStartupLocation="CenterScreen"
+                 Icon="pack://application:,,,/Assets/app.ico"
+                 ExtendsContentIntoTitleBar="True"
+                 WindowBackdropType="Mica">
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo ProgressState="{Binding TaskbarState}" ProgressValue="{Binding Progress}" />
+    </Window.TaskbarItemInfo>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Grid.Row="0" Title="{x:Static p:Strings.AppTitle}" />
+
+        <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="24">
+            <!-- Title: the phase name, or the user's session name (larger) when there is one. -->
+            <TextBlock Text="{Binding TitleText}" HorizontalAlignment="Center" TextAlignment="Center"
+                       TextWrapping="Wrap" MaxWidth="380"
+                       Foreground="{DynamicResource TextFillColorSecondaryBrush}">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="22" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding HasName}" Value="True">
+                                <Setter Property="FontSize" Value="30" />
+                                <Setter Property="FontWeight" Value="SemiBold" />
+                                <Setter Property="Foreground" Value="{DynamicResource TextFillColorPrimaryBrush}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <TextBlock Text="{Binding SubtitleText}" FontSize="15" HorizontalAlignment="Center"
+                       Foreground="{DynamicResource TextFillColorSecondaryBrush}">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding HasName}" Value="True">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <TextBlock Text="{Binding TimeText}" FontSize="96" FontWeight="SemiBold"
+                       HorizontalAlignment="Center" Margin="0,8" />
+            <!-- Without a name the session counter stays under the time; with a name it is in the subtitle. -->
+            <TextBlock Text="{Binding SessionText}" FontSize="18" HorizontalAlignment="Center"
+                       Foreground="{DynamicResource TextFillColorSecondaryBrush}">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Visibility" Value="Visible" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding HasName}" Value="True">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <ProgressBar Minimum="0" Maximum="1" Value="{Binding Progress}" Height="6" Margin="0,20,0,16" />
+            <ui:Button HorizontalAlignment="Center" Margin="0,0,0,16"
+                       Content="{x:Static p:Strings.TimersButton}" Click="OnTimersClick" />
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <ui:Button Appearance="Primary" MinWidth="110" Margin="4"
+                           Content="{Binding ToggleText}" Command="{Binding ToggleCommand}" />
+                <ui:Button MinWidth="90" Margin="4"
+                           Content="{x:Static p:Strings.Reset}" Command="{Binding ResetCommand}" />
+                <ui:Button MinWidth="110" Margin="4"
+                           Content="{x:Static p:Strings.Skip}" Command="{Binding SkipCommand}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,16,0,0">
+                <ui:Button Appearance="Transparent" Margin="4,0"
+                           Content="{x:Static p:Strings.Settings}" Click="OnSettingsClick" />
+                <ui:Button Appearance="Transparent" Margin="4,0"
+                           Content="{x:Static p:Strings.Stats}" Click="OnStatsClick" />
+                <ui:Button Appearance="Transparent" Margin="4,0"
+                           Content="{x:Static p:Strings.MiniMode}" Click="OnMiniClick" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</ui:FluentWindow>

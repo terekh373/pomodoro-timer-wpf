@@ -1,0 +1,203 @@
+<ui:FluentWindow x:Class="PomodoroTimer.SettingsWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+                 xmlns:p="clr-namespace:PomodoroTimer.Properties"
+                 Title="{x:Static p:Strings.SettingsTitle}"
+                 Width="560" Height="760" MinWidth="460" MinHeight="480"
+                 WindowStartupLocation="CenterOwner"
+                 ExtendsContentIntoTitleBar="True"
+                 WindowBackdropType="Mica">
+    <Window.Resources>
+        <Style x:Key="Section" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Margin" Value="0,20,0,8" />
+        </Style>
+        <Style x:Key="Label" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="TextWrapping" Value="Wrap" />
+        </Style>
+        <Style x:Key="Row" TargetType="Grid">
+            <Setter Property="Margin" Value="0,0,0,8" />
+        </Style>
+        <Style TargetType="ui:ToggleSwitch">
+            <Setter Property="Margin" Value="0,0,0,8" />
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ui:TitleBar Grid.Row="0" Title="{x:Static p:Strings.SettingsTitle}" ShowMinimize="False" ShowMaximize="False" />
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="24,0,24,24">
+                <ui:InfoBar IsOpen="{Binding ShowAutostartWarning}" IsClosable="False" Severity="Warning"
+                            Title="{x:Static p:Strings.AutostartWarningTitle}"
+                            Message="{x:Static p:Strings.AutostartWarningMessage}" />
+
+                <!-- Startup -->
+                <TextBlock Style="{StaticResource Section}" Text="{x:Static p:Strings.SectionStartup}" />
+                <ui:ToggleSwitch IsChecked="{Binding LaunchWithWindows, Mode=TwoWay}"
+                                 Content="{x:Static p:Strings.LaunchWithWindows}" />
+                <Grid Style="{StaticResource Row}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="200" /></Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource Label}" Text="{x:Static p:Strings.StartupMode}" />
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" SelectedIndex="{Binding StartModeIndex, Mode=TwoWay}">
+                        <ComboBoxItem Content="{x:Static p:Strings.StartModeWindow}" />
+                        <ComboBoxItem Content="{x:Static p:Strings.StartModeTray}" />
+                    </ComboBox>
+                </Grid>
+
+
+                <!-- Window -->
+                <TextBlock Style="{StaticResource Section}" Text="{x:Static p:Strings.SectionWindow}" />
+                <Grid Style="{StaticResource Row}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="200" /></Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource Label}" Text="{x:Static p:Strings.CloseAction}" />
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" SelectedIndex="{Binding CloseActionIndex, Mode=TwoWay}">
+                        <ComboBoxItem Content="{x:Static p:Strings.CloseToTray}" />
+                        <ComboBoxItem Content="{x:Static p:Strings.CloseExit}" />
+                    </ComboBox>
+                </Grid>
+                <ui:ToggleSwitch IsChecked="{Binding AlwaysOnTop, Mode=TwoWay}"
+                                 Content="{x:Static p:Strings.AlwaysOnTop}" />
+
+                <!-- Timer -->
+                <TextBlock Style="{StaticResource Section}" Text="{x:Static p:Strings.SectionTimer}" />
+                <Grid Style="{StaticResource Row}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="120" /></Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource Label}" Text="{x:Static p:Strings.WorkMinutes}" />
+                    <ui:NumberBox Grid.Column="1" Minimum="1" Maximum="180" MaxDecimalPlaces="0" ClearButtonEnabled="False"
+                                  Value="{Binding WorkMinutes, Mode=TwoWay}" />
+                </Grid>
+                <Grid Style="{StaticResource Row}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="120" /></Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource Label}" Text="{x:Static p:Strings.ShortBreakMinutes}" />
+                    <ui:NumberBox Grid.Column="1" Minimum="1" Maximum="180" MaxDecimalPlaces="0" ClearButtonEnabled="False"
+                                  Value="{Binding ShortBreakMinutes, Mode=TwoWay}" />
+                </Grid>
+                <Grid Style="{StaticResource Row}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="120" /></Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource Label}" Text="{x:Static p:Strings.LongBreakMinutes}" />
+                    <ui:NumberBox Grid.Column="1" Minimum="1" Maximum="180" MaxDecimalPlaces="0" ClearButtonEnabled="False"
+                                  Value="{Binding LongBreakMinutes, Mode=TwoWay}" />
+                </Grid>
+                <Grid Style="{StaticResource Row}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="120" /></Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource Label}" Text="{x:Static p:Strings.LongBreakInterval}" />
+                    <ui:NumberBox Grid.Column="1" Minimum="1" Maximum="20" MaxDecimalPlaces="0" ClearButtonEnabled="False"
+                                  Value="{Binding LongBreakInterval, Mode=TwoWay}" />
+                </Grid>
+                <Grid Style="{StaticResource Row}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="120" /></Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource Label}" Text="{x:Static p:Strings.DailyGoal}" />
+                    <ui:NumberBox Grid.Column="1" Minimum="1" Maximum="100" MaxDecimalPlaces="0" ClearButtonEnabled="False"
+                                  Value="{Binding DailyGoal, Mode=TwoWay}" />
+                </Grid>
+                <ui:ToggleSwitch IsChecked="{Binding AutoStartBreak, Mode=TwoWay}"
+                                 Content="{x:Static p:Strings.AutoStartBreak}" />
+                <ui:ToggleSwitch IsChecked="{Binding AutoStartWork, Mode=TwoWay}"
+                                 Content="{x:Static p:Strings.AutoStartWork}" />
+
+                <!-- Sounds -->
+                <TextBlock Style="{StaticResource Section}" Text="{x:Static p:Strings.SectionSounds}" />
+                <Grid Style="{StaticResource Row}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="100" /><ColumnDefinition Width="*" /></Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource Label}" Text="{x:Static p:Strings.Volume}" />
+                    <Slider Grid.Column="1" Minimum="0" Maximum="100" TickFrequency="1" IsSnapToTickEnabled="True"
+                            VerticalAlignment="Center" Value="{Binding Volume, Mode=TwoWay}" />
+                </Grid>
+                <ui:ToggleSwitch IsChecked="{Binding TickingEnabled, Mode=TwoWay}"
+                                 Content="{x:Static p:Strings.Ticking}" />
+                <ItemsControl ItemsSource="{Binding Sounds}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,4,0,8">
+                                <ui:ToggleSwitch IsChecked="{Binding Enabled, Mode=TwoWay}" Content="{Binding Title}" />
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Style="{StaticResource Label}" Text="{Binding FileName}" TextTrimming="CharacterEllipsis"
+                                               Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                                    <ui:Button Grid.Column="1" Margin="8,0,0,0" Content="{x:Static p:Strings.Browse}" Command="{Binding BrowseCommand}" />
+                                    <ui:Button Grid.Column="2" Margin="8,0,0,0" Content="{x:Static p:Strings.ClearFile}" Command="{Binding ClearFileCommand}" />
+                                    <ui:Button Grid.Column="3" Margin="8,0,0,0" Content="{x:Static p:Strings.Test}" Command="{Binding TestCommand}" />
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <!-- Notifications -->
+                <TextBlock Style="{StaticResource Section}" Text="{x:Static p:Strings.SectionNotifications}" />
+                <ui:ToggleSwitch IsChecked="{Binding ShowWindowOnPhaseEnd, Mode=TwoWay}"
+                                 Content="{x:Static p:Strings.ShowWindowOnPhaseEnd}" />
+                <ui:ToggleSwitch IsChecked="{Binding ToastEnabled, Mode=TwoWay}"
+                                 Content="{x:Static p:Strings.ToastEnabled}" />
+
+                <!-- Appearance -->
+                <TextBlock Style="{StaticResource Section}" Text="{x:Static p:Strings.SectionAppearance}" />
+                <Grid Style="{StaticResource Row}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="200" /></Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource Label}" Text="{x:Static p:Strings.Theme}" />
+                    <ComboBox Grid.Column="1" HorizontalAlignment="Stretch" SelectedIndex="{Binding ThemeIndex, Mode=TwoWay}">
+                        <ComboBoxItem Content="{x:Static p:Strings.ThemeSystem}" />
+                        <ComboBoxItem Content="{x:Static p:Strings.ThemeLight}" />
+                        <ComboBoxItem Content="{x:Static p:Strings.ThemeDark}" />
+                    </ComboBox>
+                </Grid>
+                <TextBlock Style="{StaticResource Label}" Text="{x:Static p:Strings.AccentColor}" Margin="0,0,0,6" />
+                <ItemsControl ItemsSource="{Binding AccentOptions}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate><WrapPanel /></ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Width="32" Height="32" Margin="0,0,8,8" Padding="0"
+                                    Background="{Binding Brush}"
+                                    ToolTip="{Binding Hex, TargetNullValue={x:Static p:Strings.AccentSystem}}"
+                                    CommandParameter="{Binding Hex}"
+                                    Command="{Binding DataContext.SelectAccentCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <!-- Hotkeys -->
+                <TextBlock Style="{StaticResource Section}" Text="{x:Static p:Strings.SectionHotkeys}" />
+                <Grid Style="{StaticResource Row}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="200" /></Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource Label}" Text="{x:Static p:Strings.HotkeyToggle}" />
+                    <TextBox Grid.Column="1" IsReadOnly="True" Tag="Toggle" Text="{Binding ToggleHotkeyText, Mode=OneWay}"
+                             PreviewKeyDown="OnHotkeyKeyDown" />
+                </Grid>
+                <Grid Style="{StaticResource Row}">
+                    <Grid.ColumnDefinitions><ColumnDefinition Width="*" /><ColumnDefinition Width="200" /></Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource Label}" Text="{x:Static p:Strings.HotkeySkip}" />
+                    <TextBox Grid.Column="1" IsReadOnly="True" Tag="Skip" Text="{Binding SkipHotkeyText, Mode=OneWay}"
+                             PreviewKeyDown="OnHotkeyKeyDown" />
+                </Grid>
+                <TextBlock Text="{x:Static p:Strings.HotkeyHint}" TextWrapping="Wrap" FontSize="12"
+                           Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+                <TextBlock Text="{Binding HotkeyWarning}" TextWrapping="Wrap" Margin="0,6,0,0"
+                           Foreground="{DynamicResource SystemFillColorCautionBrush}" />
+
+                <!-- Data -->
+                <TextBlock Style="{StaticResource Section}" Text="{x:Static p:Strings.SectionData}" />
+                <StackPanel Orientation="Horizontal">
+                    <ui:Button Content="{x:Static p:Strings.ResetDefaults}" Command="{Binding ResetDefaultsCommand}" />
+                    <ui:Button Margin="8,0,0,0" Content="{x:Static p:Strings.ExportSettings}" Command="{Binding ExportCommand}" />
+                    <ui:Button Margin="8,0,0,0" Content="{x:Static p:Strings.ImportSettings}" Command="{Binding ImportCommand}" />
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</ui:FluentWindow>

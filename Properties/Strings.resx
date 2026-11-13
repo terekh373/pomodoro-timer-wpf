@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value></resheader>
+  <data name="AppTitle" xml:space="preserve"><value>Помодоро</value></data>
+  <data name="PhaseWork" xml:space="preserve"><value>Работа</value></data>
+  <data name="PhaseShortBreak" xml:space="preserve"><value>Короткий перерыв</value></data>
+  <data name="PhaseLongBreak" xml:space="preserve"><value>Длинный перерыв</value></data>
+  <data name="Start" xml:space="preserve"><value>Старт</value></data>
+  <data name="Pause" xml:space="preserve"><value>Пауза</value></data>
+  <data name="Reset" xml:space="preserve"><value>Сброс</value></data>
+  <data name="Skip" xml:space="preserve"><value>Пропустить</value></data>
+  <data name="SessionFormat" xml:space="preserve"><value>Сессия {0}/{1}</value></data>
+  <data name="Settings" xml:space="preserve"><value>Настройки</value></data>
+  <data name="SettingsTitle" xml:space="preserve"><value>Настройки</value></data>
+  <data name="LaunchWithWindows" xml:space="preserve"><value>Запускать вместе с Windows</value></data>
+  <data name="StartupMode" xml:space="preserve"><value>При запуске</value></data>
+  <data name="StartModeWindow" xml:space="preserve"><value>Открыть окно</value></data>
+  <data name="StartModeTray" xml:space="preserve"><value>Свернуть в трей</value></data>
+  <data name="AutostartWarningTitle" xml:space="preserve"><value>Автозапуск отключён в Windows</value></data>
+  <data name="AutostartWarningMessage" xml:space="preserve"><value>Приложение отключено в Параметры Windows → Приложения → Автозагрузка. Включите его там, иначе оно не запустится при входе в систему.</value></data>
+  <data name="SectionStartup" xml:space="preserve"><value>Запуск</value></data>
+  <data name="SectionTimer" xml:space="preserve"><value>Таймер</value></data>
+  <data name="SectionSounds" xml:space="preserve"><value>Звуки</value></data>
+  <data name="SectionNotifications" xml:space="preserve"><value>Уведомления</value></data>
+  <data name="SectionAppearance" xml:space="preserve"><value>Оформление</value></data>
+  <data name="SectionHotkeys" xml:space="preserve"><value>Глобальные горячие клавиши</value></data>
+  <data name="SectionData" xml:space="preserve"><value>Данные настроек</value></data>
+  <data name="WorkMinutes" xml:space="preserve"><value>Работа, мин</value></data>
+  <data name="ShortBreakMinutes" xml:space="preserve"><value>Короткий перерыв, мин</value></data>
+  <data name="LongBreakMinutes" xml:space="preserve"><value>Длинный перерыв, мин</value></data>
+  <data name="LongBreakInterval" xml:space="preserve"><value>Длинный перерыв после N рабочих сессий</value></data>
+  <data name="AutoStartBreak" xml:space="preserve"><value>Автоматически начинать перерыв</value></data>
+  <data name="AutoStartWork" xml:space="preserve"><value>Автоматически начинать работу после перерыва</value></data>
+  <data name="DailyGoal" xml:space="preserve"><value>Дневная цель, сессий</value></data>
+  <data name="Volume" xml:space="preserve"><value>Громкость</value></data>
+  <data name="Ticking" xml:space="preserve"><value>Тиканье во время работы</value></data>
+  <data name="SoundWorkEnd" xml:space="preserve"><value>Звук: конец работы</value></data>
+  <data name="SoundBreakEnd" xml:space="preserve"><value>Звук: конец перерыва</value></data>
+  <data name="SoundDefault" xml:space="preserve"><value>Стандартный звук</value></data>
+  <data name="Browse" xml:space="preserve"><value>Выбрать…</value></data>
+  <data name="ClearFile" xml:space="preserve"><value>Сбросить</value></data>
+  <data name="Test" xml:space="preserve"><value>Проверить</value></data>
+  <data name="ToastEnabled" xml:space="preserve"><value>Уведомление Windows, которое остаётся до нажатия</value></data>
+  <data name="Theme" xml:space="preserve"><value>Тема</value></data>
+  <data name="ThemeSystem" xml:space="preserve"><value>Системная</value></data>
+  <data name="ThemeLight" xml:space="preserve"><value>Светлая</value></data>
+  <data name="ThemeDark" xml:space="preserve"><value>Тёмная</value></data>
+  <data name="AccentColor" xml:space="preserve"><value>Акцентный цвет</value></data>
+  <data name="AccentSystem" xml:space="preserve"><value>Системный</value></data>
+  <data name="HotkeyToggle" xml:space="preserve"><value>Старт / Пауза</value></data>
+  <data name="HotkeySkip" xml:space="preserve"><value>Пропустить фазу</value></data>
+  <data name="HotkeyHint" xml:space="preserve"><value>Щёлкните в поле и нажмите сочетание клавиш (Esc — очистить)</value></data>
+  <data name="HotkeyNone" xml:space="preserve"><value>Не задано</value></data>
+  <data name="HotkeyBusy" xml:space="preserve"><value>Не удалось занять сочетание клавиш: оно используется другим приложением.</value></data>
+  <data name="HotkeyNeedModifier" xml:space="preserve"><value>Сочетание должно содержать Ctrl, Alt, Shift или Win.</value></data>
+  <data name="ResetDefaults" xml:space="preserve"><value>Сбросить к умолчаниям</value></data>
+  <data name="ResetConfirm" xml:space="preserve"><value>Сбросить все настройки к значениям по умолчанию?</value></data>
+  <data name="ExportSettings" xml:space="preserve"><value>Экспорт…</value></data>
+  <data name="ImportSettings" xml:space="preserve"><value>Импорт…</value></data>
+  <data name="ImportError" xml:space="preserve"><value>Не удалось прочитать файл настроек.</value></data>
+  <data name="JsonFilter" xml:space="preserve"><value>Файлы JSON|*.json</value></data>
+  <data name="SoundFilter" xml:space="preserve"><value>Звуковые файлы|*.wav;*.mp3</value></data>
+  <data name="ToastWorkEnded" xml:space="preserve"><value>Работа окончена</value></data>
+  <data name="ToastBreakEnded" xml:space="preserve"><value>Перерыв окончен</value></data>
+  <data name="ToastNextFormat" xml:space="preserve"><value>Далее: {0} · {1}</value></data>
+  <data name="ToastStart" xml:space="preserve"><value>Начать</value></data>
+  <data name="ToastShowWindow" xml:space="preserve"><value>Показать окно</value></data>
+  <data name="SectionWindow" xml:space="preserve"><value>Окно</value></data>
+  <data name="AlwaysOnTop" xml:space="preserve"><value>Поверх всех окон</value></data>
+  <data name="ShowWindowOnPhaseEnd" xml:space="preserve"><value>Показывать окно таймера по окончании этапа</value></data>
+  <data name="TrayShow" xml:space="preserve"><value>Показать окно</value></data>
+  <data name="TrayExit" xml:space="preserve"><value>Выход</value></data>
+  <data name="CloseAction" xml:space="preserve"><value>При закрытии окна</value></data>
+  <data name="CloseToTray" xml:space="preserve"><value>Свернуть в трей</value></data>
+  <data name="CloseExit" xml:space="preserve"><value>Выйти из приложения</value></data>
+  <data name="MiniMode" xml:space="preserve"><value>Мини-режим</value></data>
+  <data name="MiniExpand" xml:space="preserve"><value>Двойной щелчок — развернуть окно</value></data>
+  <data name="TrayTooltipFormat" xml:space="preserve"><value>{0} — {1}</value></data>
+  <data name="Stats" xml:space="preserve"><value>Статистика</value></data>
+  <data name="StatsToday" xml:space="preserve"><value>Сегодня</value></data>
+  <data name="StatsWeek" xml:space="preserve"><value>Неделя</value></data>
+  <data name="StatsMonth" xml:space="preserve"><value>Месяц</value></data>
+  <data name="StatsSummaryFormat" xml:space="preserve"><value>Сессий: {0} · Фокус: {1}</value></data>
+  <data name="MinutesFormat" xml:space="preserve"><value>{0} мин</value></data>
+  <data name="HoursMinutesFormat" xml:space="preserve"><value>{0} ч {1} мин</value></data>
+  <data name="StatsGoalFormat" xml:space="preserve"><value>Цель дня: {0} из {1}</value></data>
+  <data name="StatsLast7" xml:space="preserve"><value>Последние 7 дней</value></data>
+  <data name="ExportCsv" xml:space="preserve"><value>Экспорт в CSV…</value></data>
+  <data name="CsvFilter" xml:space="preserve"><value>Файлы CSV|*.csv</value></data>
+  <data name="BarTooltipFormat" xml:space="preserve"><value>{0}: сессий — {1}, фокус — {2}</value></data>
+  <data name="TrayRunningFormat" xml:space="preserve"><value>{0} — {1} (до {2})</value></data>
+  <data name="TrayPausedFormat" xml:space="preserve"><value>{0} — {1} (пауза)</value></data>
+  <data name="TrayNextFormat" xml:space="preserve"><value>Сессия {0}/{1} · далее: {2} {3}</value></data>
+  <data name="TrayTodayFormat" xml:space="preserve"><value>Сегодня: {0}/{1} · {2}</value></data>
+  <data name="SubtitleFormat" xml:space="preserve"><value>{0} · {1}</value></data>
+  <data name="TimersButton" xml:space="preserve"><value>Настроить таймеры</value></data>
+  <data name="TimersTitle" xml:space="preserve"><value>Названия сессий</value></data>
+  <data name="TimersHint" xml:space="preserve"><value>Пустое поле — действует значение «для всех сессий» или стандартное название фазы.</value></data>
+  <data name="TimersAllSection" xml:space="preserve"><value>Для всех сессий</value></data>
+  <data name="TimersEachSection" xml:space="preserve"><value>Отдельно для каждой сессии</value></data>
+  <data name="TimersAllWork" xml:space="preserve"><value>Все сессии "Работа"</value></data>
+  <data name="TimersAllShortBreaks" xml:space="preserve"><value>Все сессии "Короткий перерыв"</value></data>
+  <data name="TimersLongBreak" xml:space="preserve"><value>Сессия "Длинный перерыв"</value></data>
+  <data name="TimersWorkRowFormat" xml:space="preserve"><value>{0}-я сессия "Работа"</value></data>
+  <data name="TimersShortRowFormat" xml:space="preserve"><value>{0}-й короткий перерыв</value></data>
+  <data name="TimersClearAll" xml:space="preserve"><value>Очистить все</value></data>
+  <data name="TimersClose" xml:space="preserve"><value>Закрыть</value></data>
+  <data name="TimersCurrent" xml:space="preserve"><value>сейчас</value></data>
+</root>
